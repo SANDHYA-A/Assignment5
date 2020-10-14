@@ -1,0 +1,131 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{mathtools}
+\usepackage{tkz-euclide} 
+\usepackage{tikz}
+\usetikzlibrary{calc,math}
+ \usepackage{caption}
+\usepackage{listings}
+\usepackage{gensymb}
+\let\vec\mathbf
+\numberwithin{equation}{subsection}
+
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+%\renewcommand{\theequation}{\theenumi}
+%\numberwithin{equation}{enumi}
+
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+
+\lstset{
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+
+\begin{document}
+
+\title{Matrix Theory EE5609 - supporting Assignment 5\\
+}
+
+\author{\IEEEauthorblockN{Sandhya Addetla}\\
+\IEEEauthorblockA{PhD Artificial Inteligence Department} \\
+AI20RESCH14001\\
+ }
+
+\maketitle
+\begin{abstract}
+Relation between hyperbola and conjugate hyperbola in terms of $\vec{V} , \vec{u}$ and $f$. 
+\end{abstract}
+\section{Solution}
+The general equation of second degree is given by
+\begin{align}
+ax^2+2bxy+cy^2+2dx+2ey+f=0\label{2.1}
+\end{align}
+and can be expressed as
+\begin{align}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{2.2}
+\end{align}
+where
+\begin{align}
+\vec{V} &= \vec{V}^T = \myvec{a & b \\ b & c}
+\\
+\vec{u} &= \myvec{d \\ e}
+\end{align}   
+Equation \ref{2.2} refers equation of a hyperbola if $|V| < 0$.\\
+Equation of a hyperbola and the combined equation of the Asymptotes differ only in the constant term.
+\begin{align}
+ ax^2+2bxy+cy^2+2dx+2ey+(f + K)=0   \label{2.36}
+\end{align}
+The above equation \ref{2.36} represents equation of asymtotes for equation \ref{2.2} and can be expressed in the form 
+\begin{align}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f_1&=0 \label{2.37}
+\intertext{Where } f_1 = f + K
+ \end{align}
+For a pair of straight lines, 
+\begin{align}
+\Delta=\begin{array}{|cc|}\vec{V} & \vec{u} \\ \vec{u}^T& f_1
+\end{array} &= 0\\
+\begin{array}{|cc|}\vec{V} & \vec{u} \\ \vec{u}^T& f+K
+\end{array}& = 0\\
+\begin{array}{|ccc|} a & b & d\\ b & c & e \\ d & e & f+K
+\end{array} &= 0
+\end{align}
+expanding this determinant, we get,
+\begin{multline}
+ac(f+K) + 2bde -a e^2 -cd^2 \\-(f+K)b^2 =0
+\end{multline}
+\begin{align}
+K = - \frac{(acf + 2bde -ae^2 -cd^2 -b^2f)}{ac-b^2}\\
+K= - \frac{\begin{array}{|cc|}\vec{V} & \vec{u} \\ \vec{u}^T& f\\
+\end{array}}{\begin{array}{|c|}{\vec{V}}\end{array}}
+\end{align}
+Let equation of the conjugate hyperbola be as given below
+\begin{align}
+ax^2+2bxy+cy^2+2dx+2ey+f_2=0\label{2.14}
+\end{align}
+ and it can be expressed in the form 
+\begin{align}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f_2&=0 \label{2.15}
+\end{align}
+ The Equation of Conjugate hyperbola is also given by:\\
+\\
+2(Equation of Asymptotes)- Equation of hyperbola.\\
+\begin{multline}
+2 \times (\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f_1)\\ -(\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f)=0 
+\end{multline}
+\begin{align}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+(2f_1 -f)= 0\label{2.16}\\
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+(f + 2K)= 0\label{2.17}
+\end{align}
+comparing equations  \ref{2.15} and \ref{2.17}, we get
+\begin{align}
+f_2 = f+ 2K\\
+f_2 = f - 2 \frac{\begin{array}{|cc|}\vec{V} & \vec{u} \\ \vec{u}^T& f\\
+\end{array}}{\begin{array}{|c|}{\vec{V}}\end{array}}
+\end{align}
+This shows the  relation between hyperbola and conjugate hyperbola in terms of $\vec{V} , \vec{u}$ and $f$. 
+
+\end{document}
